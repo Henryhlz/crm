@@ -14,7 +14,7 @@
     <!-- 手动引入spring的 applicationContext.xml 的位置-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/config/spring/applicationContext.xml</param-value>
+        <param-value>classpath:/config/ssh/applicationContext.xml</param-value>
     </context-param>
     <!--配置struts2和核心过滤器-->
     <filter>
@@ -23,7 +23,7 @@
         <!-- 手动引入struts主配置文件 struts.xml 的位置-->
         <init-param>
             <param-name>config</param-name>
-            <param-value>struts-default.xml,struts-plugin.xml,config/struts/struts.xml</param-value>
+            <param-value>struts-default.xml,struts-plugin.xml,config/ssh/struts.xml</param-value>
         </init-param>
         <!--自动扫描加载Struts2其他配置文件的工具类-->
         <init-param>

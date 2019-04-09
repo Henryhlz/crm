@@ -43,7 +43,7 @@ public class CutomConfigurationProvider extends XmlConfigurationProvider {
     /*
     项目中struts2的配置文件目录
      */
-    private static final String FILE_PATTERN = "classpath*:config/struts/*/struts-*.xml";
+    private static final String FILE_PATTERN = "classpath*:config/ssh/*/struts-*.xml";
 
     public CutomConfigurationProvider() {
         Map<String, String> mappings = new HashMap<String, String>();

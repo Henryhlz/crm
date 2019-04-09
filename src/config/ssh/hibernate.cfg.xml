@@ -32,11 +32,11 @@
         <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
 
         <!--第三部分 指定所有的映射文件 -->
-        <mapping resource="config/hibernate/customer/BaseDict.hbm.xml"/>
+        <mapping resource="config/ssh/customer/BaseDict.hbm.xml"/>
         <mapping class="com.hlz.crm.domain.BaseDict"/>
-        <mapping resource="config/hibernate/customer/CstCustomer.hbm.xml"/>
+        <mapping resource="config/ssh/customer/CstCustomer.hbm.xml"/>
         <mapping class="com.hlz.crm.domain.CstCustomer"/>
-        <mapping resource="config/hibernate/customer/CstLinkman.hbm.xml"/>
+        <mapping resource="config/ssh/customer/CstLinkman.hbm.xml"/>
         <mapping class="com.hlz.crm.domain.CstLinkman"/>
     </session-factory>
 </hibernate-configuration>

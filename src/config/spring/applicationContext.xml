@@ -7,5 +7,5 @@
     <!--指定spring其他配置文件-->
     <import resource="applicationContext-jdbc.xml"/>
     <import resource="applicationContext-aop.xml"/>
-    <import resource="classpath*:config/spring/customer/applicationContext-*.xml"/>
+    <import resource="classpath*:config/spring/*/applicationContext-*.xml"/>
 </beans>

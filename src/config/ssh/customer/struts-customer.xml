@@ -5,7 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="customer" extends="mydefault" namespace="/customer">
+    <package name="customer" extends="struts-default" namespace="/customer">
         <!--addCustomer.action 对应 name="*"，通配符*addCustomer，
               method="{1}"里面的{1}就是代表addCustomer()方法,
               这个addCustomer()方法存在于 CustomerAction中

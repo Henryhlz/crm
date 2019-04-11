@@ -5,6 +5,4 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="mydefault" extends="struts-default" abstract="true">
-    </package>
 </struts>

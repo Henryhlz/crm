@@ -13,11 +13,9 @@
       <facet type="Struts2" name="Struts 2">
         <configuration>
           <fileset id="s2fileset" name="My Fileset" removed="false">
-            <file>file://$MODULE_DIR$/src/config/ssh/customer/struts-customer.xml</file>
             <file>file://$MODULE_DIR$/src/config/ssh/struts.xml</file>
-            <file>jar://$MODULE_DIR$/web/WEB-INF/lib/struts2-convention-plugin-2.3.24.jar!/struts-plugin.xml</file>
+            <file>file://$MODULE_DIR$/src/config/ssh/customer/struts-customer.xml</file>
             <file>jar://$MODULE_DIR$/web/WEB-INF/lib/struts2-core-2.3.24.jar!/struts-default.xml</file>
-            <file>jar://$MODULE_DIR$/web/WEB-INF/lib/struts2-spring-plugin-2.3.24.jar!/struts-plugin.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
@@ -35,10 +33,10 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/config/spring/applicationContext-aop.xml</file>
-          <file>file://$MODULE_DIR$/src/config/spring/customer/applicationContext-customer.xml</file>
-          <file>file://$MODULE_DIR$/src/config/spring/applicationContext-jdbc.xml</file>
-          <file>file://$MODULE_DIR$/src/config/spring/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/config/ssh/applicationContext-aop.xml</file>
+          <file>file://$MODULE_DIR$/src/config/ssh/customer/applicationContext-customer.xml</file>
+          <file>file://$MODULE_DIR$/src/config/ssh/applicationContext-jdbc.xml</file>
+          <file>file://$MODULE_DIR$/src/config/ssh/applicationContext.xml</file>
         </fileset>
       </configuration>
     </facet>

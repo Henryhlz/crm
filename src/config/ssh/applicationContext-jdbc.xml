@@ -14,6 +14,35 @@
            把hibernate主配置文件的位置注入进来。
     -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="configLocation" value="classpath:config/ssh/hibernate.cfg.xml"></property>
+        <!--第一部分 配置链接数据库的信息 -->
+        <property name="dataSource" ref="dataSource"></property>
+        <!-- 第二部分 hibernate的可选配置 -->
+        <property name="hibernateProperties">
+            <props>
+                <!--当前session绑定线程，一个线程只有一个session-->
+                <prop key="current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop>
+                <!-- hibernate所使用的的数据库方言  -->
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <!--  执行操作是否在控制台打印SQL -->
+                <prop key="hibernate.show_sql">true</prop>
+                <!-- 是否对SQL进行格式化 -->
+                <prop key="hibernate.format_sql">true</prop>
+                <!-- 指定自动生成数据表的策略:在运行数据库的时候hibernate会为我们在数据库自动生成数据表的策略 -->
+                <prop key="hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+        <!--第三部分 指定所有的映射文件
+            注解用packagesToScan指定实体所在的包
+            xml文件用mappingLocations指定映射文件所在的目录
+         -->
+        <property name="packagesToScan" value="com.hlz.crm.domain"/>
+    </bean>
+    <!--配置 数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl"
+                  value="jdbc:mysql://localhost:3306/crm?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false"/>
+        <property name="user" value="root"/>
+        <property name="password" value="root"/>
     </bean>
 </beans>

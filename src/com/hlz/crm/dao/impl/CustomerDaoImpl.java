@@ -7,6 +7,7 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import java.util.List;
 
 /**
+ * 客户持久层实现类
  * @author Henryhlz
  */
 public class CustomerDaoImpl implements ICustomerDao {

@@ -3,20 +3,21 @@ package com.hlz.crm.service.impl;
 import com.hlz.crm.service.ICustomerService;
 import com.hlz.crm.dao.ICustomerDao;
 import com.hlz.crm.domain.CstCustomer;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * 客户业务层接口的实现类
  * @author Henryhlz
  */
+@Service("customerService")
 public class CustomerServiceImpl implements ICustomerService {
 
+    @Resource(name = "customerDao")
     private ICustomerDao customerDao;
 
-    public void setCustomerDao(ICustomerDao customerDao) {
-        this.customerDao = customerDao;
-    }
 
     /**
      * 保存客户

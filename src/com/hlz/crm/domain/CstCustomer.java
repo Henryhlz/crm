@@ -11,11 +11,19 @@ import java.util.Objects;
 public class CstCustomer {
     private long custId;
     private String custName;
-    private String custSource;
+    private BaseDict custSource;
     private String custIndustry;
-    private String custLevel;
+    private BaseDict custLevel;
     private String custAddress;
     private String custPhone;
+
+    public CstCustomer() {
+    }
+
+    public CstCustomer(long custId, String custName) {
+        this.custId = custId;
+        this.custName = custName;
+    }
 
     @Id
     @Column(name = "cust_id")
@@ -38,12 +46,13 @@ public class CstCustomer {
     }
 
     @Basic
-    @Column(name = "cust_source")
-    public String getCustSource() {
+    @ManyToOne(targetEntity = BaseDict.class)
+    @JoinColumn(name = "cust_source", referencedColumnName = "dict_id")
+    public BaseDict getCustSource() {
         return custSource;
     }
 
-    public void setCustSource(String custSource) {
+    public void setCustSource(BaseDict custSource) {
         this.custSource = custSource;
     }
 
@@ -58,12 +67,13 @@ public class CstCustomer {
     }
 
     @Basic
-    @Column(name = "cust_level")
-    public String getCustLevel() {
+    @ManyToOne(targetEntity = BaseDict.class)
+    @JoinColumn(name = "cust_level", referencedColumnName = "dict_id")
+    public BaseDict getCustLevel() {
         return custLevel;
     }
 
-    public void setCustLevel(String custLevel) {
+    public void setCustLevel(BaseDict custLevel) {
         this.custLevel = custLevel;
     }
 

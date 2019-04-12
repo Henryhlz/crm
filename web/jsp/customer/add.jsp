@@ -1,5 +1,5 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +10,7 @@
 <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
 </HEAD>
 <BODY>
+<s:debug></s:debug>
 	<FORM id=form1 name=form1 action="${pageContext.request.contextPath }/customer/addCustomer.action" method=post>
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
@@ -39,39 +40,41 @@
 							<TR>
 								<td>客户名称：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custName">
+									<s:textfield class="textbox" id="sChannel2" style="WIDTH: 180px" maxLength="50"
+												 name="customer.custName"></s:textfield>
 								</td>
 								<td>所属行业 ：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custIndustry">
+									<s:textfield class="textbox" id="sChannel2" style="WIDTH: 180px" maxLength="50"
+												 name="customer.custIndustry"></s:textfield>
 								</td>
 							</TR>							
 							<TR>	
 								<td>信息来源 ：</td>
 								<td>
-									<select name="custSource" class=textbox id=sChannel2 style="WIDTH: 180px">
-										<option value="non">---请选择---</option>
-										<option value="6">电话营销</option>
-										<option value="7">网络营销</option>
-									</select>
+									<s:select name="customer.custSource.dictId" list="custSources" listKey="dictId"
+											  listValue="dictItemName"
+											  headerKey="" headerValue="---请选择---" class="textbox" id="sChannel2"
+											  style="WIDTH: 180px"/>
 								</td>
 								<td>客户级别：</td>
 								<td>
-									<select name="custLevel" class=textbox id=sChannel2 style="WIDTH: 180px">
-										<option value="non">---请选择---</option>
-										<option value="22">普通客户</option>
-										<option value="23">VIP客户</option>
-									</select>								
+									<s:select name="customer.custLevel.dictId" list="custLevels" listKey="dictId"
+											  listValue="dictItemName"
+											  headerKey="" headerValue="---请选择---" class="textbox" id="sChannel2"
+											  style="WIDTH: 180px"/>
 								</td>
 							</TR>
 							<TR>
 								<td>联系地址 ：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custAddress">
+									<s:textfield class="textbox" id="sChannel2" style="WIDTH: 180px" maxLength="50"
+												 name="customer.custAddress"></s:textfield>
 								</td>
 								<td>联系电话 ：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custPhone">
+									<s:textfield class="textbox" id="sChannel2" style="WIDTH: 180px" maxLength="50"
+												 name="customer.custPhone"></s:textfield>
 								</td>
 							</TR>
 							<tr>

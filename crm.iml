@@ -25,6 +25,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="hibernate.cfg.xml" />
+          <unit-entry name="sessionFactory" value="14e68a37-acd7-42a6-b1df-14ee5cc46fcb" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/config/ssh/hibernate.cfg.xml" />

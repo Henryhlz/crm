@@ -5,6 +5,7 @@ import com.hlz.crm.domain.BaseDict;
 import com.hlz.crm.service.IBaseDictService;
 import com.hlz.crm.service.ICustomerService;
 import com.hlz.crm.domain.CstCustomer;
+import com.hlz.framework.commons.Page;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.convention.annotation.*;
@@ -38,6 +39,8 @@ public class CustomerAction extends ActionSupport  {
     private IBaseDictService baseDictService;
     private List<BaseDict> custSources;
     private List<BaseDict> custLevels;
+    private int pageNum;
+    private Page page;
 
 
     /**
@@ -122,7 +125,7 @@ public class CustomerAction extends ActionSupport  {
             criteria.add(Restrictions.eq("custLevel", customer.getCustLevel()));
         }
         //根据离线条件查询客户
-        customers = customerService.findAllCustomer(criteria);
+        page = customerService.findAllCustomer(criteria, pageNum);
         //获取客户来源
         custSources = baseDictService.findAllCustSources();
         //获取客户级别
@@ -160,5 +163,21 @@ public class CustomerAction extends ActionSupport  {
 
     public void setCustLevels(List<BaseDict> custLevels) {
         this.custLevels = custLevels;
+    }
+
+    public int getPageNum() {
+        return pageNum;
+    }
+
+    public void setPageNum(int pageNum) {
+        this.pageNum = pageNum;
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
+    public void setPage(Page page) {
+        this.page = page;
     }
 }

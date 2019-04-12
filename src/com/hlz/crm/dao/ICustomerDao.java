@@ -50,4 +50,16 @@ public interface ICustomerDao {
      * @return
      */
     List<CstCustomer> findAllCustomer(DetachedCriteria criteria);
+
+    /**
+     * 根据离线条件查询客户进行分页
+     *
+     * @param criteria
+     * @param firstResult 开始行数
+     * @param maxResults  要查询结果数
+     * @return
+     */
+    List<CstCustomer> findAllCustomer(DetachedCriteria criteria, int firstResult, int maxResults);
+
+    int findAllRecords(DetachedCriteria criteria);
 }

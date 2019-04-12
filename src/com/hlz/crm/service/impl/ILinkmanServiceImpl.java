@@ -3,7 +3,9 @@ package com.hlz.crm.service.impl;
 import com.hlz.crm.dao.ILinkmanDao;
 import com.hlz.crm.domain.CstLinkman;
 import com.hlz.crm.service.ILinkmanService;
+import com.hlz.framework.commons.Page;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -69,5 +71,23 @@ public class ILinkmanServiceImpl implements ILinkmanService {
     @Override
     public List<CstLinkman> findAllLinkman(DetachedCriteria criteria) {
         return linkmanDao.findAllLinkman(criteria);
+    }
+
+    @Override
+    public Page findAllLinkman(DetachedCriteria criteria, int pageNum) {
+        int currentPageNum = 1;
+        if (pageNum > 1) {
+            currentPageNum = pageNum;
+        }
+        int totalPageNum = findAllRecords(criteria);
+        Page page = new Page(currentPageNum, totalPageNum);
+        List<CstLinkman> linkmans = linkmanDao.findAllLinkman(criteria, page.getFirstResult(), page.getMaxResults());
+        page.setRecords(linkmans);
+        return page;
+    }
+
+    @Override
+    public int findAllRecords(DetachedCriteria criteria) {
+        return linkmanDao.findAllRecords(criteria);
     }
 }

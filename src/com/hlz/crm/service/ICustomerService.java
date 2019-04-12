@@ -1,6 +1,7 @@
 package com.hlz.crm.service;
 
 import com.hlz.crm.domain.CstCustomer;
+import com.hlz.framework.commons.Page;
 import org.hibernate.criterion.DetachedCriteria;
 
 import java.util.List;
@@ -49,4 +50,13 @@ public interface ICustomerService {
      * @return
      */
     List<CstCustomer> findAllCustomer(DetachedCriteria criteria);
+
+    /**
+     * 根据离线条件查询客户进行分页
+     *
+     * @param criteria
+     * @param pageNum  页数
+     * @return
+     */
+    Page findAllCustomer(DetachedCriteria criteria, int pageNum);
 }

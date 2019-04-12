@@ -4,6 +4,7 @@ import com.hlz.crm.domain.CstCustomer;
 import com.hlz.crm.domain.CstLinkman;
 import com.hlz.crm.service.ICustomerService;
 import com.hlz.crm.service.ILinkmanService;
+import com.hlz.framework.commons.Page;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.convention.annotation.*;
 import org.hibernate.criterion.DetachedCriteria;
@@ -35,6 +36,8 @@ public class LinkmanAction {
     private CstLinkman linkman = new CstLinkman();
     private List<CstLinkman> linkmans;
     private List<CstCustomer> customers;
+    private int pageNum;
+    private Page page;
 
     /**
      * 删除联系人
@@ -116,7 +119,7 @@ public class LinkmanAction {
         if (StringUtils.isNoneBlank(linkman.getLkmGender())) {
             criteria.add(Restrictions.eq("lkmGender", linkman.getLkmGender()));
         }
-        linkmans = linkmanService.findAllLinkman(criteria);
+        page = linkmanService.findAllLinkman(criteria, pageNum);
         customers = customerService.findAllCustomer();
         return "findAllLinkman";
     }
@@ -143,5 +146,21 @@ public class LinkmanAction {
 
     public void setCustomers(List<CstCustomer> customers) {
         this.customers = customers;
+    }
+
+    public int getPageNum() {
+        return pageNum;
+    }
+
+    public void setPageNum(int pageNum) {
+        this.pageNum = pageNum;
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
+    public void setPage(Page page) {
+        this.page = page;
     }
 }

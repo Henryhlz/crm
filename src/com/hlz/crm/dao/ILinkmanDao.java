@@ -46,4 +46,8 @@ public interface ILinkmanDao {
      * @param id
      */
     CstLinkman findById(long id);
+
+    int findAllRecords(DetachedCriteria criteria);
+
+    List<CstLinkman> findAllLinkman(DetachedCriteria criteria, int firstResult, int maxResults);
 }

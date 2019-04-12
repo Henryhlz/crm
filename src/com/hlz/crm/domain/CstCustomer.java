@@ -1,7 +1,9 @@
 package com.hlz.crm.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * @author Henryhlz
@@ -16,6 +18,7 @@ public class CstCustomer {
     private BaseDict custLevel;
     private String custAddress;
     private String custPhone;
+    private Set<CstLinkman> linkmans = new HashSet<CstLinkman>();
 
     public CstCustomer() {
     }
@@ -97,6 +100,16 @@ public class CstCustomer {
         this.custPhone = custPhone;
     }
 
+    @Basic
+    @OneToMany(mappedBy = "customer")
+    public Set<CstLinkman> getLinkmans() {
+        return linkmans;
+    }
+
+    public void setLinkmans(Set<CstLinkman> linkmans) {
+        this.linkmans = linkmans;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -121,9 +134,9 @@ public class CstCustomer {
         return "CstCustomer{" +
                 "custId=" + custId +
                 ", custName='" + custName + '\'' +
-                ", custSource='" + custSource + '\'' +
+                ", custSource=" + custSource +
                 ", custIndustry='" + custIndustry + '\'' +
-                ", custLevel='" + custLevel + '\'' +
+                ", custLevel=" + custLevel +
                 ", custAddress='" + custAddress + '\'' +
                 ", custPhone='" + custPhone + '\'' +
                 '}';

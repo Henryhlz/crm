@@ -17,6 +17,7 @@ public class CstLinkman {
     private String lkmEmail;
     private String lkmPosition;
     private String lkmMemo;
+    private CstCustomer customer;
 
     @Id
     @Column(name = "lkm_id")
@@ -98,6 +99,16 @@ public class CstLinkman {
         this.lkmMemo = lkmMemo;
     }
 
+    @ManyToOne(targetEntity = CstCustomer.class)
+    @JoinColumn(name = "lkm_cust_id", referencedColumnName = "cust_id")
+    public CstCustomer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(CstCustomer customer) {
+        this.customer = customer;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -116,5 +127,20 @@ public class CstLinkman {
     @Override
     public int hashCode() {
         return Objects.hash(lkmId, lkmName, lkmGender, lkmPhone, lkmMobile, lkmEmail, lkmPosition, lkmMemo);
+    }
+
+    @Override
+    public String toString() {
+        return "CstLinkman{" +
+                "lkmId=" + lkmId +
+                ", lkmName='" + lkmName + '\'' +
+                ", lkmGender='" + lkmGender + '\'' +
+                ", lkmPhone='" + lkmPhone + '\'' +
+                ", lkmMobile='" + lkmMobile + '\'' +
+                ", lkmEmail='" + lkmEmail + '\'' +
+                ", lkmPosition='" + lkmPosition + '\'' +
+                ", lkmMemo='" + lkmMemo + '\'' +
+                ", customer=" + customer +
+                '}';
     }
 }

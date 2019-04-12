@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import java.util.List;
 
 /**
+ * 客户动作类
  * @author Henryhlz
  */
 @Controller
@@ -106,11 +107,11 @@ public class CustomerAction extends ActionSupport  {
         //拼装查询条件
         //判断是否输入客户名称
         if (StringUtils.isNoneBlank(customer.getCustName())) {
-            criteria.add(Restrictions.like("custName", customer.getCustName()));
+            criteria.add(Restrictions.like("custName", "%" + customer.getCustName() + "%"));
         }
         //判断是否输入所属行业
         if (StringUtils.isNoneBlank(customer.getCustIndustry())) {
-            criteria.add(Restrictions.like("custIndustry", customer.getCustIndustry()));
+            criteria.add(Restrictions.like("custIndustry", "%" + customer.getCustIndustry() + "%"));
         }
         //判断是否输入客户来源
         if (customer.getCustSource() != null && StringUtils.isNoneBlank(customer.getCustSource().getDictId())) {
